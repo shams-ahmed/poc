@@ -28,8 +28,8 @@ struct Constants {
 
         /// Base URL
         static var url = "https://api.themoviedb.org"
-
-        /// Image URL
+        
+        /// Image URL, set by `ConfigurationController` class
         static var imageUrl: String?
     }
 }
