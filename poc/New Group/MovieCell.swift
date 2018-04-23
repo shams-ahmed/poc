@@ -16,11 +16,11 @@ class MovieCell: UITableViewCell {
 
     private typealias Score = (text: NSAttributedString, color: UIColor)
 
-    @IBOutlet private weak var poster: UIImageView!
-    @IBOutlet private weak var title: UILabel!
-    @IBOutlet private weak var releaseDate: UILabel!
-    @IBOutlet private weak var overview: UILabel!
-    @IBOutlet private weak var score: UILabel!
+    @IBOutlet private var poster: UIImageView!
+    @IBOutlet private var title: UILabel!
+    @IBOutlet private var releaseDate: UILabel!
+    @IBOutlet private var overview: UILabel!
+    @IBOutlet private var score: UILabel!
 
     // MARK:
     // MARK: Nib
@@ -41,6 +41,7 @@ class MovieCell: UITableViewCell {
     // MARK:
     // MARK: Configure
 
+    // Configure cell for current nad next view
     func configure(
         poster: UIImage?=nil,
         title: String,
@@ -57,6 +58,7 @@ class MovieCell: UITableViewCell {
         self.score.textColor = formattedScore.color
     }
 
+    // Add image to view
     func addImage(_ image: UIImage) {
         poster.image = image
     }
