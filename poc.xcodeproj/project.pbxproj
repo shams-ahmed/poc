@@ -20,6 +20,9 @@
 		103D0062208BE2DB0048D715 /* DateFormatter+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D0061208BE2DB0048D715 /* DateFormatter+Custom.swift */; };
 		103D0065208C92DA0048D715 /* MovieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D0064208C92DA0048D715 /* MovieTest.swift */; };
 		103D0067208CE3D70048D715 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103D0066208CE3D70048D715 /* MovieCell.xib */; };
+		103D006A208D313B0048D715 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D0069208D313B0048D715 /* MovieCell.swift */; };
+		103D006C208D3A430048D715 /* MasterViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D006B208D3A430048D715 /* MasterViewController+DataSource.swift */; };
+		103D006E208D3A940048D715 /* MasterViewController+Prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D006D208D3A940048D715 /* MasterViewController+Prefetch.swift */; };
 		10940211208A7AA00013FC47 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10940210208A7AA00013FC47 /* ImageService.swift */; };
 		10C2F3952088FE8B0009CC21 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2F3942088FE8B0009CC21 /* MovieResponse.swift */; };
 		10FD9E5420867FAE00697D4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FD9E5320867FAE00697D4E /* AppDelegate.swift */; };
@@ -63,6 +66,9 @@
 		103D0061208BE2DB0048D715 /* DateFormatter+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Custom.swift"; sourceTree = "<group>"; };
 		103D0064208C92DA0048D715 /* MovieTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTest.swift; sourceTree = "<group>"; };
 		103D0066208CE3D70048D715 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		103D0069208D313B0048D715 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		103D006B208D3A430048D715 /* MasterViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterViewController+DataSource.swift"; sourceTree = "<group>"; };
+		103D006D208D3A940048D715 /* MasterViewController+Prefetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MasterViewController+Prefetch.swift"; sourceTree = "<group>"; };
 		10940210208A7AA00013FC47 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		10C2F3942088FE8B0009CC21 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		10FD9E5020867FAE00697D4E /* poc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				103D0066208CE3D70048D715 /* MovieCell.xib */,
+				103D0069208D313B0048D715 /* MovieCell.swift */,
 				10FD9E5920867FAE00697D4E /* Main.storyboard */,
 			);
 			name = UI;
@@ -215,6 +222,8 @@
 				10FD9E6E2086831E00697D4E /* Constants.swift */,
 				10FD9E5320867FAE00697D4E /* AppDelegate.swift */,
 				10FD9E5520867FAE00697D4E /* MasterViewController.swift */,
+				103D006B208D3A430048D715 /* MasterViewController+DataSource.swift */,
+				103D006D208D3A940048D715 /* MasterViewController+Prefetch.swift */,
 				10FD9E5720867FAE00697D4E /* DetailViewController.swift */,
 				103D0068208CE3DB0048D715 /* UI */,
 				10FD9E672086801B00697D4E /* Core */,
@@ -357,6 +366,7 @@
 				1032C53A208A35B5006C376A /* Router.swift in Sources */,
 				103D0044208B96780048D715 /* ImageController.swift in Sources */,
 				103D0046208B9BB50048D715 /* Configuration.swift in Sources */,
+				103D006C208D3A430048D715 /* MasterViewController+DataSource.swift in Sources */,
 				10FD9E5620867FAE00697D4E /* MasterViewController.swift in Sources */,
 				103D004C208BA0B00048D715 /* ConfigurationController.swift in Sources */,
 				103D0062208BE2DB0048D715 /* DateFormatter+Custom.swift in Sources */,
@@ -364,8 +374,10 @@
 				10FD9E6F2086831E00697D4E /* Constants.swift in Sources */,
 				10FD9E7520868FBA00697D4E /* MovieController.swift in Sources */,
 				10FD9E5420867FAE00697D4E /* AppDelegate.swift in Sources */,
+				103D006A208D313B0048D715 /* MovieCell.swift in Sources */,
 				1032C53C208A35CA006C376A /* ImageRouter.swift in Sources */,
 				103D0048208B9ED00048D715 /* ConfigurationRouter.swift in Sources */,
+				103D006E208D3A940048D715 /* MasterViewController+Prefetch.swift in Sources */,
 				10FD9E7120868BB500697D4E /* MovieService.swift in Sources */,
 				10FD9E6D2086814800697D4E /* MovieRouter.swift in Sources */,
 				103D004A208B9FFD0048D715 /* ConfigurationService.swift in Sources */,
