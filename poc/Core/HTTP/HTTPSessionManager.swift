@@ -39,13 +39,17 @@ class HTTPSessionManager {
     static func dataTask(for request: URLRequest,
         _ completion: @escaping (HTTPResult) -> Void) -> URLSessionDataTask {
         // create a data task
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // retry operation could done here by checking the status code
             guard error == nil, let data = data else {
                 return completion(HTTPResult.failed(error ?? Errors.unknown))
             }
 
-            // look status code as well, for demo purposes will leave this out
+            // look status code, for demo purposes will leave like this
+            // API state 401 is returned for api key error's
+            if (response as? HTTPURLResponse)?.statusCode == 401 {
+                print("Invalid API key: Please update `Constants.API.Key` with your API key")
+            }
 
             // pass success
             completion(HTTPResult.success(data))
