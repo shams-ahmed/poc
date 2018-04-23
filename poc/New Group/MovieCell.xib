@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVe-V4-ztw">
-                        <rect key="frame" x="0.0" y="0.0" width="82" height="170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="122" height="170"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="170" id="dAO-Q0-fBB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVG-ES-AUu">
-                        <rect key="frame" x="90" y="12" width="285" height="24"/>
+                        <rect key="frame" x="130" y="12" width="245" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="iol-st-5F0"/>
                         </constraints>
@@ -36,13 +36,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Ag-RnF">
-                        <rect key="frame" x="90" y="35" width="195" height="14"/>
+                        <rect key="frame" x="130" y="35" width="115" height="14"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nwf-jd-Y60">
-                        <rect key="frame" x="90" y="59" width="278" height="79"/>
+                        <rect key="frame" x="130" y="59" width="238" height="79"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="79" id="N2b-xO-dEn"/>
                         </constraints>
@@ -80,7 +80,7 @@
                 <constraints>
                     <constraint firstItem="MJ3-Ag-RnF" firstAttribute="top" secondItem="VVG-ES-AUu" secondAttribute="bottom" constant="-1" id="5Kj-L0-Epz"/>
                     <constraint firstItem="MJ3-Ag-RnF" firstAttribute="leading" secondItem="GVe-V4-ztw" secondAttribute="trailing" constant="8" id="C94-hv-OaD"/>
-                    <constraint firstAttribute="trailing" secondItem="GVe-V4-ztw" secondAttribute="trailing" constant="293" id="D4v-zd-dcL"/>
+                    <constraint firstAttribute="trailing" secondItem="GVe-V4-ztw" secondAttribute="trailing" constant="253" id="D4v-zd-dcL"/>
                     <constraint firstItem="GVe-V4-ztw" firstAttribute="leading" secondItem="msO-wY-Bcq" secondAttribute="leading" id="EE0-JI-zpi"/>
                     <constraint firstItem="VVG-ES-AUu" firstAttribute="trailing" secondItem="3AF-yU-3Ff" secondAttribute="trailing" constant="10" id="FS5-ae-scV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3AF-yU-3Ff" secondAttribute="trailing" constant="-6" id="IF1-0o-0Pi"/>

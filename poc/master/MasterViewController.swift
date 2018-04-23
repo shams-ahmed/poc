@@ -62,12 +62,14 @@ class MasterViewController: UITableViewController {
     // MARK:
     // MARK: Fetching
 
+    // fetch more movies
     func fetchMovies() {
         movieController.fetchMorePopularMovies { [weak tableView] _ in
             DispatchQueue.main.async { tableView?.reloadData() }
         }
     }
 
+    // fetch image and add it to cell if present
     func fetchImages(_ indexPaths: [IndexPath], cell: MovieCell?=nil) {
         indexPaths.forEach {
             let movie = movieController.movies[$0.row]
