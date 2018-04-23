@@ -14,10 +14,7 @@ class MasterViewController: UITableViewController {
 
     let movieController = MovieController()
     let configurationController = ConfigurationController()
-
-    lazy var imageController = {
-        return ImageController(configuration: configurationController)
-    }()
+    lazy var imageController = { return ImageController(configuration: configurationController) }()
 
     // MARK:
     // MARK: Lifecycle
@@ -32,17 +29,47 @@ class MasterViewController: UITableViewController {
     // MARK: Setup
 
     private func setup() {
-        configurationController.fetchConfiguration { 
+        tableView.prefetchDataSource = self
+
+        tableView.register(
+            UINib(nibName: String(describing: MovieCell.self), bundle: nil),
+            forCellReuseIdentifier: String(describing: MovieCell.self)
+        )
+
+        configurationController.fetchConfiguration { [weak self] in
             switch $0 {
-            case .success: self.fetchMovies()
+            case .success: self?.fetchMovies()
             case .failed: break // display error to user
             }
         }
     }
 
-    private func fetchMovies() {
-        self.movieController.fetchMorePopularMovies { _ in
-            DispatchQueue.main.async { self.tableView.reloadData() }
+    // MARK:
+    // MARK: Fetching
+
+    func fetchMovies() {
+        movieController.fetchMorePopularMovies { [weak tableView] _ in
+            DispatchQueue.main.async { tableView?.reloadData() }
+        }
+    }
+
+    func fetchImages(_ indexPaths: [IndexPath], cell: MovieCell?=nil) {
+        indexPaths.forEach {
+            let movie = movieController.movies[$0.row]
+
+            imageController.image(
+                .low,
+                for: movie.posterPath, { [weak cell] result in
+                    guard let cell = cell else { return }
+
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let image): cell.addImage(image)
+                        case .failed: break // display no error placeholder
+                        }
+                    }
+                }
+            )
         }
     }
 
@@ -58,28 +85,5 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
-    }
-
-    // MARK:
-    // MARK: UITableViewDataSource
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // start fetching next row
-        if indexPath.row + 1 == movieController.movies.count {
-            fetchMovies()
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieController.movies.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let object = movieController.movies[indexPath.row]
-
-        cell.textLabel?.text = object.title
-
-        return cell
     }
 }
