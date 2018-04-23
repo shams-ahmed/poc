@@ -56,7 +56,7 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Movie Name" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" id="mOI-FS-AaM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,12 +9,12 @@
 import UIKit
 
 /// Image view
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, CustomView {
 
     /// Custom view
     lazy var getView: DetailView = {
         guard let view = view as? DetailView else {
-            fatalError("view is not been set in storyboard")
+            fatalError("view has not been set in storyboard")
         }
 
         return view
@@ -31,11 +31,6 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.backBarButtonItem?.title = "xxx"
-
-
-
 
         setup()
     }

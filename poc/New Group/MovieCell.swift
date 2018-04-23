@@ -72,10 +72,13 @@ class MovieCell: UITableViewCell {
         let color: UIColor
 
         if percentage >= 70 {
+            // lime green
             color = UIColor(red: 167/255, green: 212/255, blue: 90/255, alpha: 1)
         } else if percentage >= 40 {
+            // yellow/orange
             color = UIColor(red: 236/255, green: 174/255, blue: 107/255, alpha: 1)
         } else {
+            // stock red
             color = .red
         }
 

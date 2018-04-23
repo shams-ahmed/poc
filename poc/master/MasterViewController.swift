@@ -10,9 +10,13 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    /// movie ontroller
     let movieController = MovieController()
+
+    /// configuration controller
     let configurationController = ConfigurationController()
 
+    /// image controller
     lazy var imageController = { return ImageController(configuration: configurationController) }()
 
     // MARK:
@@ -22,10 +26,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
 
         setup()
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        setupUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,19 +39,24 @@ class MasterViewController: UITableViewController {
     // MARK: Setup
 
     private func setup() {
-        tableView.prefetchDataSource = self
-
-        tableView.register(
-            UINib(nibName: String(describing: MovieCell.self), bundle: nil),
-            forCellReuseIdentifier: String(describing: MovieCell.self)
-        )
-
+        // To interact with the Movie-db you must fetch the configuration
+        // if you want to display images
         configurationController.fetchConfiguration { [weak self] in
             switch $0 {
             case .success: self?.fetchMovies()
             case .failed: break // display error to user
             }
         }
+    }
+
+    private func setupUI() {
+        tableView.prefetchDataSource = self
+
+        // register custom cell
+        tableView.register(
+            UINib(nibName: String(describing: MovieCell.self), bundle: nil),
+            forCellReuseIdentifier: String(describing: MovieCell.self)
+        )
     }
 
     // MARK:
@@ -66,9 +72,11 @@ class MasterViewController: UITableViewController {
         indexPaths.forEach {
             let movie = movieController.movies[$0.row]
 
+            // pre-fetch images
             imageController.image(
                 .low,
                 for: movie.posterPath, { [weak cell] result in
+                    // if a cell been provided add the image
                     guard let cell = cell else { return }
 
                     DispatchQueue.main.async {
@@ -85,13 +93,13 @@ class MasterViewController: UITableViewController {
     // MARK: Segue
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // would of been nicer to move into a flow coordinators pattern
+        // but since it's only a 2 screen pop put focus elsewhere
+
         let controller = (segue.destination as? UINavigationController)?.topViewController as? DetailViewController
 
         controller?.imageController = imageController
         controller?.model = sender as? Movie
-
-        controller?.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        controller?.navigationItem.leftItemsSupplementBackButton = true
 
         title = " "
     }

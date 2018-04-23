@@ -39,6 +39,11 @@ class ImageController {
 
     init(configuration: ConfigurationController) {
         configurationController = configuration
+
+        // Given more time i would i preferred to add NSOperationQueue
+        // where all download request will put in queue to avoid
+        // using too much memory and network and limit the request to few at
+        // a time. 
     }
 
     // MARK:

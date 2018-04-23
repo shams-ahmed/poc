@@ -30,6 +30,8 @@ struct ImageService {
         }
 
         // try speed up request by fetching cache if available
+        // ideally it better to use custom cache system with FileManger
+        // but due to time i'll use stock
         request.cachePolicy = .returnCacheDataElseLoad
 
         /// download image data

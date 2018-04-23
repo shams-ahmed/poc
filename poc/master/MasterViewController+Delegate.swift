@@ -14,6 +14,16 @@ extension MasterViewController {
     // MARK:
     // MARK: UITableViewDelegate
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // start fetching next row
+        if indexPath.row + 1 == movieController.movies.count {
+            fetchMovies()
+        }
+
+        // insert image to UI
+        fetchImages([indexPath], cell: cell as? MovieCell)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = movieController.movies[indexPath.row]
 
